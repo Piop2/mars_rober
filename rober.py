@@ -41,7 +41,8 @@ while running:
 
         # controller event
         if controller is not None:
-            pass
+            if pygame.event == pygame.CONTROLLERAXISMOTION:
+                pass
 
     pygame.display.update()
 
