@@ -35,8 +35,14 @@ while running:
 
     # event
     for event in pygame.event.get():
+        # quit
         if event.type == pygame.QUIT:
             running = False
+
+        # controller event
+        if controller is not None:
+            pass
+
     pygame.display.update()
 
 pygame.quit()
