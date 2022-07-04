@@ -100,11 +100,25 @@ while running:
 
         # controller event
         if controller is not None:
-            if pygame.event == pygame.CONTROLLERAXISMOTION:
-                pass
+            if event.type == pygame.JOYHATMOTION:
+                print(event)
+                if event.value == (0, 1):
+                    up = True
+                if event.value == (0, -1):
+                    down = True
+                if event.value == (1, 0):
+                    right = True
+                if event.value == (-1, 0):
+                    left = True
+                if event.value == (0, 0):
+                    up = False
+                    down = False
+                    right = False
+                    left = False
 
         # keyboard event
         if event.type == pygame.KEYDOWN:
+            print(event)
             if event.key == pygame.K_UP or event.key == pygame.K_w:
                 up = True
             if event.key == pygame.K_DOWN or event.key == pygame.K_s:
@@ -115,13 +129,14 @@ while running:
                 right = True
 
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_UP:
+            print(event)
+            if event.key == pygame.K_UP or event.key == pygame.K_w:
                 up = False
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 down = False
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 left = False
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 right = False
 
     pygame.display.update()
