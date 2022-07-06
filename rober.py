@@ -1,7 +1,7 @@
 import pygame
 from gpiozero import Robot
 
-from server.utils.clip import clip
+from utils.clip import clip
 
 # init pygame
 pygame.init()
@@ -29,10 +29,10 @@ def blit_button(surface, is_pushed, button_imgs, pos):
     return
 
 
-button_up = load_button('server/images/button_up.png')
-button_down = load_button('server/images/button_down.png')
-button_left = load_button('server/images/button_left.png')
-button_right = load_button('server/images/button_right.png')
+button_up = load_button('images/button_up.png')
+button_down = load_button('images/button_down.png')
+button_left = load_button('images/button_left.png')
+button_right = load_button('images/button_right.png')
 
 # plz check dc motor driver port num
 dc_motor1 = Robot(left=(0, 0), right=(0, 0))
