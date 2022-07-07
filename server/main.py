@@ -3,7 +3,7 @@ from app.renderer import Renderer
 from app.input import Input
 
 
-class App:
+class Main:
     def __init__(self):
         self.window = Window()
         self.renderer = Renderer(self)
@@ -19,4 +19,4 @@ class App:
 
 
 if __name__ == '__main__':
-    App().run()
+    Main().run()
