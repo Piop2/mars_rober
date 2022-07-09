@@ -2,6 +2,7 @@ import socket
 from _thread import start_new_thread
 
 from server_socket.client import Client
+from server_socket.error import ClientNotConnected, NoDataReceived
 
 from config import parser
 
@@ -20,9 +21,9 @@ class ServerSocket:
     @property
     def client_camera_img(self):
         if self.client is None:
-            return None
+            raise NoDataReceived()
         if self.client.camera_img is None:
-            return None
+            raise ClientNotConnected()
         return self.client.camera_img
 
     @property

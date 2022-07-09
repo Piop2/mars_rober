@@ -1,6 +1,6 @@
 import server_socket.message
 from utils.image import decode_image
-from server_socket.error import NoDataReceived
+from server_socket.error import ClinetDisconnected
 
 class Client:
     def __init__(self, socket, addr):
@@ -18,7 +18,7 @@ class Client:
 
         # no received data -> raise error to disconnect the client
         if not data:
-            raise NoDataReceived()
+            raise ClinetDisconnected()
         
         # client camera img
         img = data['camera']['bytes']

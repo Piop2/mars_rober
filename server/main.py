@@ -12,7 +12,7 @@ class Main:
         self.window = Window()
         self.renderer = Renderer(self)
         self.input = Input()
-        self.server = ServerSocket()
+        self.server = ServerSocket(self)
 
     def update(self):
         self.renderer.update()
