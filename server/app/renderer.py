@@ -32,4 +32,6 @@ class Renderer:
         # finally render image to window
         display.blit(image, (0, 0))
 
+        self.app.window.render()
+
         pygame.display.update()

@@ -15,7 +15,16 @@ class Window:
 
         # caption
         pygame.display.set_caption('Rober Controll')
+
+        self.is_fullscreen = False
     
+    def render(self):
+        if self.is_fullscreen:
+            size = self.monitor_size
+        else:
+            size = self.window_size
+        self.window.blit(pygame.transform.scale(self.display, size), (0, 0))
+
     def fullscreen(self):
         return
     

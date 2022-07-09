@@ -12,8 +12,6 @@ class Input:
         self.left = False
         self.right = False
 
-        self.fullscreen = False
-
     def update(self):
         for event in pygame.event.get():
             # quit
@@ -38,8 +36,8 @@ class Input:
                 
                 # togle fullscreen&windowscreen
                 if event.key == pygame.K_f:
-                    self.fullscreen = not self.fullscreen
-                    if self.fullscreen:
+                    self.app.input.is_fullscreen = not self.app.input.is_fullscreen
+                    if self.app.input.is_fullscreen:
                         self.app.window.fullscreen()
                     else:
                         self.app.window.windowscreen()
