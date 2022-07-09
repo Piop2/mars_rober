@@ -43,7 +43,7 @@ class ServerSocket:
     def client_thread(self):
         while True:
             try:
-                # 아직 클라이언트한테 받는 데이터는 이미지 밖에 없습니다
+                # receive camera image only...
                 _ = self.client.receive()
                 
                 # send controller key event

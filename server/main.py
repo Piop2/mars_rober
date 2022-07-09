@@ -11,7 +11,7 @@ class Main:
         self.assets = Assets()
         self.window = Window()
         self.renderer = Renderer(self)
-        self.input = Input()
+        self.input = Input(self)
         self.server = ServerSocket(self)
 
     def update(self):

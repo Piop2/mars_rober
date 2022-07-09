@@ -3,12 +3,16 @@ import pygame
 
 
 class Input:
-    def __init__(self):
+    def __init__(self, app):
+        self.app = app
+
         # keys
         self.up = False
         self.down = False
         self.left = False
         self.right = False
+
+        self.fullscreen = False
 
     def update(self):
         for event in pygame.event.get():
@@ -31,6 +35,14 @@ class Input:
                 # right
                 if event.key == pygame.K_d:
                     self.right = True
+                
+                # togle fullscreen&windowscreen
+                if event.key == pygame.K_f:
+                    self.fullscreen = not self.fullscreen
+                    if self.fullscreen:
+                        self.app.window.fullscreen()
+                    else:
+                        self.app.window.windowscreen()
 
             if event.type == pygame.KEYUP:
                 # up
