@@ -15,19 +15,34 @@ class ServerSocket:
 
         self.client = None
 
+    @property
+    def is_client_conn(self):
+        if self.client is None:
+            return False
+        return True
+
+    def client_disconn(self):
+        self.client = None
+        return
+
+    def client_conn(self, socket_data):
+        self.client = Client(*socket_data)
+        return
+
     def client_thread(self):
         while True:
             try:
-                pass
+                data = self.client.receive()
+                # 데이터 처리부분 코드 써주세요
             except:
-                pass
+                self.client_disconn()
 
     def listen(self):
         self.socket.listen()
 
         # wait for client connect
         while True:
-            self.client = Client(*self.socket.accept())
+            self.client_conn(self.socket.accept())
             start_new_thread(self.client_thread, ())
 
     def run(self):
