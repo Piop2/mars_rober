@@ -1,0 +1,2 @@
+class NoDataReceived(Exception):
+    pass

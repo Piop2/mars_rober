@@ -7,13 +7,23 @@ from config import parser
 
 
 class ServerSocket:
-    def __init__(self):
+    def __init__(self, app):
+        self.app = app
+
         # socket
         self.addr = ("", parser.server_port)
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         self.client = None
+
+    @property
+    def client_camera_img(self):
+        if self.client is None:
+            return None
+        if self.client.camera_img is None:
+            return None
+        return self.client.camera_img
 
     @property
     def is_client_conn(self):
@@ -32,8 +42,8 @@ class ServerSocket:
     def client_thread(self):
         while True:
             try:
-                data = self.client.receive()
-                # 데이터 처리부분 코드 써주세요
+                # 아직 클라이언트한테 받는 데이터는 이미지 밖에 없습니다
+                _ = self.client.receive()
             except:
                 self.client_disconn()
 
