@@ -45,6 +45,10 @@ class ServerSocket:
             try:
                 # 아직 클라이언트한테 받는 데이터는 이미지 밖에 없습니다
                 _ = self.client.receive()
+                
+                # send controller key event
+                k = self.app.input
+                self.client.send(up=k.up, down=k.down, left=k.left, right=k.right)
             except:
                 self.client_disconn()
 
