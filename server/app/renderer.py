@@ -2,6 +2,7 @@ import pygame
 
 from server_socket.error import ClientNotConnected, NoDataReceived
 
+
 class Renderer:
     def __init__(self, app):
         self.app = app
@@ -19,18 +20,31 @@ class Renderer:
 
         display.fill((255, 255, 255))
 
-        # client camera img
-        image = None
-        try:
-            # if client worked, receive the data(pygame.Surface)
-            image = self.app.server.client_camera_img
-        except ClientNotConnected: # if client not connected
-            pass
-        except NoDataReceived: # if client didnt received data or img data
-            pass
+        # # client camera img
+        # image = None
+        # try:
+        #     # if client worked, receive the data(pygame.Surface)
+        #     image = self.app.server.client_camera_img
+        # except ClientNotConnected:  # if client not connected
+        #     pass
+        # except NoDataReceived:  # if client didnt received data or img data
+        #     pass
+        #
+        # # finally render image to window
+        # display.blit(image, (0, 0))
 
-        # finally render image to window
-        display.blit(image, (0, 0))
+        # render button
+        assets = self.app.assets
+        k = self.app.input
+        for buttons, pos, pressed in zip((assets.b_up, assets.b_down, assets.b_left, assets.b_right),
+                                         ((0, 0), (0, 50), (0, 100), (0, 150)),
+                                         (k.up, k.down, k.left, k.right)):
+            if pressed:
+                button = buttons[1]
+            else:
+                button = buttons[0]
+
+            display.blit(button, pos)
 
         self.app.window.render()
 

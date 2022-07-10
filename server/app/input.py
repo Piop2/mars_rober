@@ -36,8 +36,8 @@ class Input:
                 
                 # togle fullscreen&windowscreen
                 if event.key == pygame.K_f:
-                    self.app.input.is_fullscreen = not self.app.input.is_fullscreen
-                    if self.app.input.is_fullscreen:
+                    self.app.window.is_fullscreen = not self.app.window.is_fullscreen
+                    if self.app.window.is_fullscreen:
                         self.app.window.fullscreen()
                     else:
                         self.app.window.windowscreen()
