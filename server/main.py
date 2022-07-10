@@ -1,3 +1,7 @@
+"""
+SERVER APP
+"""
+
 from app.window import Window
 from app.renderer import Renderer
 from app.input import Input

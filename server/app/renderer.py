@@ -37,7 +37,7 @@ class Renderer:
         assets = self.app.assets
         k = self.app.input
         for buttons, pos, pressed in zip((assets.b_up, assets.b_down, assets.b_left, assets.b_right),
-                                         ((0, 0), (0, 50), (0, 100), (0, 150)),
+                                         ((225, 120), (225, 220), (175, 170), (275, 170)),
                                          (k.up, k.down, k.left, k.right)):
             if pressed:
                 button = buttons[1]
