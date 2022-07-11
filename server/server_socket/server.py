@@ -48,7 +48,27 @@ class ServerSocket:
                 
                 # send controller key event
                 k = self.app.input
-                self.client.send(up=k.up, down=k.down, left=k.left, right=k.right)
+                foward_s = parser.foward_speed
+                back_s = parser.backward_speed
+                turn_s = parser.turn_speed
+                if k.up:
+                    motor1 = foward_s
+                    motor2 = foward_s
+                elif k.down:
+                    motor1 = - back_s
+                    motor2 = - back_s
+                elif k.left:
+                    motor1 = - turn_s
+                    motor2 = turn_s
+                elif k.right:
+                    motor1 = turn_s
+                    motor2 = - turn_s
+                else:
+                    motor1 = 0
+                    motor2 = 0
+
+                self.client.send(motor1, motor2)
+
             except (ClientDisconnected, NoDataReceived):
                 self.client_disconn()
 

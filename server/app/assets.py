@@ -29,3 +29,10 @@ class Assets:
         self.a_down = load_img('assets/arrow/down.png')
         self.a_left = load_img('assets/arrow/left.png')
         self.a_right = load_img('assets/arrow/right.png')
+
+        # hat
+        self.h_c = load_img('assets/controller/hat/00.png')
+        self.h_up = load_img('assets/controller/hat/01.png')
+        self.h_down = load_img('assets/controller/hat/0-1.png')
+        self.h_right = load_img('assets/controller/hat/10.png')
+        self.h_left = load_img('assets/controller/hat/-10.png')

@@ -13,6 +13,11 @@ class Input:
         # controller axis pos
         self.axis1 = [0, 0]
         self.axis2 = [0, 0]
+        # # hat
+        # self.h_up = False
+        # self.h_down = False
+        # self.h_left = False
+        # self.h_right = False
 
         # keys
         self.up = False
@@ -73,6 +78,23 @@ class Input:
                     else:
                         self.up = False
                         self.down = False
+            # if event.type == pygame.JOYHATMOTION:
+            #     if event.value[0] == 1:
+            #         self.h_up = True
+            #     else:
+            #         self.h_up = False
+            #     if event.value[0] == -1:
+            #         self.h_down = True
+            #     else:
+            #         self.h_down = False
+            #     if event.value[1] == 1:
+            #         self.h_right = True
+            #     else:
+            #         self.h_right = False
+            #     if event.value[1] == -1:
+            #         self.h_left = True
+            #     else:
+            #         self.h_left = False
 
             # keyboard
             if event.type == pygame.KEYDOWN:
