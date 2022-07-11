@@ -1,7 +1,6 @@
 import pygame.image
 
 from utils.clip import clip
-from utils.json_data import load_f
 
 
 def load_button(path):
@@ -13,9 +12,20 @@ def load_button(path):
     return button_img
 
 
+def load_img(path):
+    return pygame.image.load(path)
+
+
 class Assets:
     def __init__(self):
-        self.b_up = load_button('assets/buttons/up.png')
-        self.b_down = load_button('assets/buttons/down.png')
-        self.b_left = load_button('assets/buttons/left.png')
-        self.b_right = load_button('assets/buttons/right.png')
+        self.c_body = load_img('assets/controller/body.png')
+
+        # axis
+        self.c_ball = load_img('assets/controller/axis/ball.png')
+        self.c_stick = load_img('assets/controller/axis/stick.png')
+
+        # arrow
+        self.a_up = load_img('assets/arrow/up.png')
+        self.a_down = load_img('assets/arrow/down.png')
+        self.a_left = load_img('assets/arrow/left.png')
+        self.a_right = load_img('assets/arrow/right.png')

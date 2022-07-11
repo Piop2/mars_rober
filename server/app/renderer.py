@@ -33,18 +33,37 @@ class Renderer:
         # # finally render image to window
         # display.blit(image, (0, 0))
 
-        # render button
+        # render controller
         assets = self.app.assets
         k = self.app.input
-        for buttons, pos, pressed in zip((assets.b_up, assets.b_down, assets.b_left, assets.b_right),
-                                         ((225, 120), (225, 220), (175, 170), (275, 170)),
-                                         (k.up, k.down, k.left, k.right)):
-            if pressed:
-                button = buttons[1]
-            else:
-                button = buttons[0]
 
-            display.blit(button, pos)
+        controller = pygame.Surface(assets.c_body.get_size())
+        controller.fill((100, 0, 0))
+        controller.set_colorkey((100, 0, 0))
+
+        controller.blit(assets.c_body, (0, 0))  # body
+
+        # axis1
+        axis1 = k.axis1
+        controller.blit(assets.c_ball, (50, 50))
+        controller.blit(assets.c_stick, (65 + (axis1[0] * 7), 55 + (axis1[1] * 7)))
+        # hint arrow
+        assets.a_up.set_alpha(0)
+        assets.a_down.set_alpha(0)
+        if axis1[1] < 0:
+            assets.a_up.set_alpha(255 * abs(axis1[1]))
+        else:
+            assets.a_down.set_alpha(255 * abs(axis1[1]))
+        controller.blit(assets.a_up, (60, 20))
+        controller.blit(assets.a_down, (60, 115))
+        print(axis1)
+
+        # axis2
+        axis2 = k.axis2
+        controller.blit(assets.c_ball, (240, 120))
+        controller.blit(assets.c_stick, (255 + (axis2[0] * 7), 125 + (axis2[1] * 7)))
+
+        display.blit(controller, (0, 0))
 
         self.app.window.render()
 

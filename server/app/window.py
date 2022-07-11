@@ -4,11 +4,12 @@ import pygame
 class Window:
     def __init__(self):
         pygame.init()
+
         # monitor size
         self.monitor_size = [pygame.display.Info().current_w, pygame.display.Info().current_h]  # plz get monitor size
 
         # window: real program window
-        self.window_size = (500, 500)
+        self.window_size = (750, 750)
         self.window = pygame.display.set_mode(self.window_size)
         # render surface
         self.display_size = (500, 500)
