@@ -2,7 +2,7 @@ import socket
 from _thread import start_new_thread
 
 from server_socket.client import Client
-from server_socket.error import ClientNotConnected, NoDataReceived
+from server_socket.error import ClientDisconnected, ClientNotConnected, NoDataReceived
 
 from config import parser
 
@@ -49,7 +49,7 @@ class ServerSocket:
                 # send controller key event
                 k = self.app.input
                 self.client.send(up=k.up, down=k.down, left=k.left, right=k.right)
-            except:
+            except (ClientDisconnected, NoDataReceived):
                 self.client_disconn()
 
     def listen(self):
