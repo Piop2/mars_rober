@@ -27,3 +27,4 @@ class DCMotor:
             self.motor.backward(speed)
         else:
             self.motor.stop()
+        print(self.mode)
