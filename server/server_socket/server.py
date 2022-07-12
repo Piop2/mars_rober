@@ -48,21 +48,20 @@ class ServerSocket:
                 
                 # send controller key event
                 k = self.app.input
-                foward_s = parser.foward_speed
-                back_s = parser.backward_speed
-                turn_s = parser.turn_speed
+                axis1 = k.app.axis1[0]
+                axis2 = - k.app.axis2[1]
                 if k.up:
-                    motor1 = foward_s
-                    motor2 = foward_s
+                    motor1 = axis1
+                    motor2 = axis1
                 elif k.down:
-                    motor1 = - back_s
-                    motor2 = - back_s
+                    motor1 = - axis1
+                    motor2 = - axis1
                 elif k.left:
-                    motor1 = - turn_s
-                    motor2 = turn_s
+                    motor1 = - axis2
+                    motor2 = axis2
                 elif k.right:
-                    motor1 = turn_s
-                    motor2 = - turn_s
+                    motor1 = axis2
+                    motor2 = - axis2
                 else:
                     motor1 = 0
                     motor2 = 0
