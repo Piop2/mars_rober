@@ -9,7 +9,7 @@ class DCMotor:
 
     @property
     def speed(self):
-        return
+        return self.motor_speed
 
     @speed.setter
     def speed(self, new_speed):
@@ -21,6 +21,7 @@ class DCMotor:
 
     def go(self):
         speed = abs(self.motor_speed)
+        print(speed)
         if self.mode == "forward":
             self.motor.forward(speed)
         else:
