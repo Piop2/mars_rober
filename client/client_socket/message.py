@@ -1,8 +1,8 @@
-import utils
+from utils.json_data import encode, decode
 
 
 def send(client, data):
-    msg = utils.json_data.encode(data)
+    msg = encode(data)
     client.send(msg)
     return
 
@@ -11,4 +11,4 @@ def receive(server):
     msg = server.recv(1024)
     if not msg:
         return {}
-    return utils.json_data.decode(msg)
+    return decode(msg)
