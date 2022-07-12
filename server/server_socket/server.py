@@ -81,3 +81,4 @@ class ServerSocket:
 
     def run(self):
         self.socket.bind(self.addr)
+        start_new_thread(self.listen, ())
