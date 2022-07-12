@@ -6,7 +6,6 @@ class DCMotor:
         self.motor = gpiozero.Robot(left=pin1, right=pin2)
         self.motor_speed = 0
         self.mode = "forward"
-        self.motor.stop()
 
     @property
     def speed(self):
@@ -24,5 +23,7 @@ class DCMotor:
         speed = abs(self.motor_speed)
         if self.mode == "forward":
             self.motor.forward(speed)
-        else:
+        elif self.mode == "backward"
             self.motor.backward(speed)
+        else:
+            self.motor.stop()
