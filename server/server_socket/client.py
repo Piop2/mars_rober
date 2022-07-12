@@ -11,7 +11,7 @@ class Client:
         self.camera_img = None
 
     def send(self, motor1, motor2):
-        data = {'motor': []}
+        data = {'motor1': motor1, 'motor2': motor2}
         server_socket.message.send(self.socket, data)
 
     def receive(self):
