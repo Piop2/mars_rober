@@ -23,7 +23,7 @@ class DCMotor:
         speed = abs(self.motor_speed)
         if self.mode == "forward":
             self.motor.forward(speed)
-        elif self.mode == "backward"
+        elif self.mode == "backward":
             self.motor.backward(speed)
         else:
             self.motor.stop()
