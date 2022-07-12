@@ -2,7 +2,6 @@ import socket
 from _thread import start_new_thread
 
 from client_socket.message import send, receive
-from client_socket.error import *
 
 from config import parser
 
@@ -22,6 +21,9 @@ class ClientSocket:
                 data = receive(self.socket)
                 motor1 = data['motor1']
                 motor2 = data['motor2']
+
+                self.rover.motor_l.speed = motor1
+                self.rover.motor_r.speed = motor2
 
                 send(self.socket, {})
             except ConnectionError:
