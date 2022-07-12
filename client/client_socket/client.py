@@ -23,7 +23,7 @@ class ClientSocket:
                 motor1 = data['motor1']
                 motor2 = data['motor2']
 
-                # send camera image
+                send(self.socket, {})
             except ConnectionError:
                 pass
 

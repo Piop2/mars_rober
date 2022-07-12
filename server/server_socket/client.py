@@ -22,10 +22,10 @@ class Client:
             raise ClientDisconnected()
 
         # client camera img
-        img = data['camera']['bytes']
-        if img is not None:
-            self.camera_img = decode_image(img)
-        else:
-            self.camera_img = None
+        # img = data['camera']['bytes']
+        # if img is not None:
+        #     self.camera_img = decode_image(img)
+        # else:
+        #     self.camera_img = None
 
         return data
