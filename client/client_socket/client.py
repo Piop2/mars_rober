@@ -19,6 +19,7 @@ class ClientSocket:
         while True:
             try:
                 data = receive(self.socket)
+                print(data)
                 motor1 = data['motor1']
                 motor2 = data['motor2']
 
@@ -29,7 +30,7 @@ class ClientSocket:
 
                 send(self.socket, {})
             except ConnectionError:
-                pass
+                print("disconnected")
 
     def connect(self):
         print('CONNECTING..')

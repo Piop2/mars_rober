@@ -21,7 +21,6 @@ class DCMotor:
 
     def go(self):
         speed = abs(self.motor_speed)
-        print(speed)
         if self.mode == "forward":
             self.motor.forward(speed)
         elif self.mode == "backward":

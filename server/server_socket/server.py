@@ -71,6 +71,7 @@ class ServerSocket:
 
             except (ClientDisconnected, NoDataReceived):
                 self.client_disconn()
+                print("disconnected")
 
     def listen(self):
         self.socket.listen()
