@@ -21,10 +21,10 @@ class DCMotor:
 
     def go(self):
         speed = abs(self.motor_speed)
+        print(speed)
         if self.mode == "forward":
             self.motor.forward(speed)
         elif self.mode == "backward":
             self.motor.backward(speed)
-        if speed <= 0:
+        if speed == 0.0:
             self.motor.stop()
-        print(self.mode)
