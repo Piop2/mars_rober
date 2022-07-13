@@ -76,8 +76,10 @@ class ServerSocket:
 
         # wait for client connect
         while True:
+            print("wait...")
             self.client_conn(self.socket.accept())
             start_new_thread(self.client_thread, ())
+            print("connected")
 
     def run(self):
         self.socket.bind(self.addr)
