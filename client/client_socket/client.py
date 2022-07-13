@@ -15,6 +15,7 @@ class ClientSocket:
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def server_thread(self):
+        send(self.socket, {})
         while True:
             try:
                 data = receive(self.socket)
