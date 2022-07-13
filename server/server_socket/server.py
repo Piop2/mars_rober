@@ -50,7 +50,8 @@ class ServerSocket:
                 k = self.app.input
                 axis1 = k.app.axis1[0]
                 axis2 = - k.app.axis2[1]
-                print(axis1, axis2)
+                motor1 = 0
+                motor2 = 0
                 if k.up:
                     motor1 = axis1
                     motor2 = axis1
@@ -63,9 +64,6 @@ class ServerSocket:
                 elif k.right:
                     motor1 = axis2
                     motor2 = - axis2
-                else:
-                    motor1 = 0
-                    motor2 = 0
 
                 self.client.send(motor1, motor2)
 

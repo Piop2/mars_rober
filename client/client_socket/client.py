@@ -19,9 +19,12 @@ class ClientSocket:
         while True:
             try:
                 data = receive(self.socket)
-                print(data)
-                motor1 = data['motor1']
-                motor2 = data['motor2']
+                try:
+                    motor1 = data['motor1']
+                    motor2 = data['motor2']
+                except KeyError:
+                    motor1 = 0
+                    motor2 = 0
 
                 self.rover.motor_l.speed = motor1
                 self.rover.motor_r.speed = motor2
