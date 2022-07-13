@@ -24,6 +24,8 @@ class ClientSocket:
                 self.rover.motor_l.speed = motor1
                 self.rover.motor_r.speed = motor2
 
+                print(self.rover.motor_r.speed, self.rover.motor_l.speed)
+
                 send(self.socket, {})
             except ConnectionError:
                 pass
